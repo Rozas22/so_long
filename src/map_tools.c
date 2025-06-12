@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 15:44:28 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/12 15:58:02 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/12 16:09:13 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_map_height(char	**map)
 	int	i;
 
 	i = 0;
-	wile ( map[i])
+	while ( map[i])
 		i++;
 	return (i);
 }

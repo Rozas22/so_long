@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:13:20 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/05/30 14:59:04 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/12 16:07:04 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**map_read(const char	*file_path)
 	if (!map)
 		return (NULL);
 	i = 0;
-	while (line)
+	while (line || i < 9999)
 	{
 		map[i++] = line;
 		line = get_next_line(fd);
