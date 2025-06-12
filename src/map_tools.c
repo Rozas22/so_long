@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 15:44:28 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/12 17:01:27 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:42:29 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,73 @@ char	**copy_map(char **map)
 	}
 	new_map[i] = NULL;
 	return (new_map);
+}
+
+void	flood_fill(char **map, int x, int y)
+{
+	if (mao[y][x] == '1' || map[y][x] == 'V')
+		return;
+	map[y][x] = 'V';
+	
+	flood_fill(map, x + 1, y);
+	flood_fill(map, x - 1, y);
+	flood_fill(map, x, y + 1);
+	flood_fill(map, x, y - 1);
+}
+
+int	find_player(char **map, int *x, int *y)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j == 'P')
+			{
+				*x = j;
+				*y = i;
+				return (1);
+					
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+void	free_map(char **map)
+{
+	int	i;
+	
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+int	is_map_fully_accessible(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C' map[i][j] == 'E')
+				return (0);
+			j++
+		}
+		i++;
+	}
+	return (1);
 }

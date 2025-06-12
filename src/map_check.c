@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:34:57 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/05 12:47:15 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:44:03 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,29 @@ static int	count_chars(char c, t_counts *counts)
 		counts->c++;
 	else if (c != 0 && c != 1)
 		return (0);
+	return (1);
+}
+
+int	check_map_accesibility(char **map)
+{
+	char	**map_copy;
+	int		i;
+	int		y;
+
+	map_copy = copy_map(map);
+	if (!map_copy)
+		return (0);
+	if (!find_player(map_copy, &x, &y))
+	{
+		free_map(map_copy);
+		return(0);
+	}
+	flood_fill(map_copy, x, y);
+	if (!is_map_fully_accessible(map_copy))
+	{
+		free_map(map_copy);
+		return (0);
+	}
+	free_map(map_copy);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/12 15:58:50 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:47:37 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,10 @@ int		check_walls(char **map);
 int		check_parameters(char **map);
 char	**copy_map(char **map);
 int		get_map_height(char **map);
+void	free_map(char **map);
+void	flood_fill(char **map, int x, int y);
+int		find_player(char **map, int *x, int *y);
+int		is_map_fully_accessible(char **map);
+int		check_map_accessibility(char **map);
 
 #endif
