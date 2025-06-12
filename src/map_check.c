@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:34:57 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/05/30 15:24:40 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/05 12:47:15 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,65 @@ int	check_walls(char **map)
 {
 	int	i;
 	int	len;
+	int	last;
 
 	len = ft_strlen(map[0]);
+	last = 0;
+	while (map[last])
+		last++;
+	last--;
 	i = 0;
 	while (map[0][i])
 	{
-		if (map[0][i] != '1' || map[ft_strrchr(map, NULL) - map - 1][i] != '1')
+		if (map[0][i] != '1' || map[last][i] != '1')
 			return (0);
 		i++;
 	}
 	i = 1;
-	while (map[i + 1])
+	while (map[i < last])
 	{
 		if (map[i][0] != '1' || map[i][len - 1] != '1')
 			return (0);
 		i++;
 	}
+	return (1);
+}
+
+int	check_parameters(char **map)
+{
+	int			i;
+	int			j;
+	t_counts	counts;
+
+	counts.p = 0;
+	counts.e = 0;
+	counts.c = 0;
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (!count_chars(map[i][j], &counts))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	if (counts.p != 1 || counts.e != 1 || counts.c < 1)
+		return (0);
+	return (1);
+}
+
+static int	count_chars(char c, t_counts *counts)
+{
+	if (c == 'P')
+		counts->p++;
+	else if (c == 'E')
+		counts->e++;
+	else if (c == 'C')
+		counts->c++;
+	else if (c != 0 && c != 1)
+		return (0);
 	return (1);
 }
