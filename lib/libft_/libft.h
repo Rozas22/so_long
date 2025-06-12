@@ -6,18 +6,18 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 14:35:32 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/05/30 14:18:00 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:00:36 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include	<stddef.h>
-# include	<unistd.h>
-# include	<stdio.h>
-# include	<stdlib.h>
-# include	<fcntl.h>
+# include <stddef.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42

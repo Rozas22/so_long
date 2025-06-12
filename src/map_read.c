@@ -6,11 +6,11 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:13:20 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/12 16:07:04 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/12 17:01:02 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"so_long.h"
+#include "so_long.h"
 
 char	**map_read(const char	*file_path)
 {
