@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 15:44:28 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/12 17:42:29 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/18 09:28:55 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ char	**copy_map(char **map)
 void	flood_fill(char **map, int x, int y)
 {
 	if (mao[y][x] == '1' || map[y][x] == 'V')
-		return;
+		return ;
 	map[y][x] = 'V';
-	
 	flood_fill(map, x + 1, y);
 	flood_fill(map, x - 1, y);
 	flood_fill(map, x, y + 1);
@@ -67,12 +66,11 @@ int	find_player(char **map, int *x, int *y)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j == 'P')
+			if (map[i][j] == 'P')
 			{
 				*x = j;
 				*y = i;
 				return (1);
-					
 			}
 			j++;
 		}
@@ -84,7 +82,7 @@ int	find_player(char **map, int *x, int *y)
 void	free_map(char **map)
 {
 	int	i;
-	
+
 	i = 0;
 	while (map[i])
 	{
@@ -92,23 +90,4 @@ void	free_map(char **map)
 		i++;
 	}
 	free(map);
-}
-int	is_map_fully_accessible(char **map)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] == 'C' map[i][j] == 'E')
-				return (0);
-			j++
-		}
-		i++;
-	}
-	return (1);
 }

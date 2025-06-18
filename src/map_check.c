@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:34:57 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/12 17:44:03 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/18 09:30:12 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	check_map_accesibility(char **map)
 	if (!find_player(map_copy, &x, &y))
 	{
 		free_map(map_copy);
-		return(0);
+		return (0);
 	}
 	flood_fill(map_copy, x, y);
 	if (!is_map_fully_accessible(map_copy))
