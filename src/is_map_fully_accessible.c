@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 09:28:26 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/18 09:29:19 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/18 10:57:30 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_map_fully_accessible(char **map)
 		j = 0;
 		while (map[i][j])
 		{
-			if (map[i][j] == 'C' map[i][j] == 'E')
+			if (map[i][j] == 'C' || map[i][j] == 'E')
 				return (0);
 			j++;
 		}

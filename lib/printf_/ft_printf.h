@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:01:32 by ikrozas           #+#    #+#             */
-/*   Updated: 2024/10/29 16:17:51 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/18 11:03:05 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <stddef.h>
 
 int		cases(char format, va_list args);
 int		ft_printf(const char *format, ...);

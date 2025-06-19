@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:34:57 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/18 09:30:12 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/18 11:28:35 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_rectangular(char	**map)
 	i = 1;
 	while (map[i])
 	{
-		if (ft_strlen(map[i]) != len)
+		if ((int)ft_strlen(map[i]) != len)
 			return (0);
 		i++;
 	}
@@ -58,6 +58,19 @@ int	check_walls(char **map)
 	return (1);
 }
 
+static int	count_chars(char c, t_counts *counts)
+{
+	if (c == 'P')
+		counts->p++;
+	else if (c == 'E')
+		counts->e++;
+	else if (c == 'C')
+		counts->c++;
+	else if (c != 0 && c != 1)
+		return (0);
+	return (1);
+}
+
 int	check_parameters(char **map)
 {
 	int			i;
@@ -84,23 +97,10 @@ int	check_parameters(char **map)
 	return (1);
 }
 
-static int	count_chars(char c, t_counts *counts)
-{
-	if (c == 'P')
-		counts->p++;
-	else if (c == 'E')
-		counts->e++;
-	else if (c == 'C')
-		counts->c++;
-	else if (c != 0 && c != 1)
-		return (0);
-	return (1);
-}
-
-int	check_map_accesibility(char **map)
+int	check_map_accessibility(char **map)
 {
 	char	**map_copy;
-	int		i;
+	int		x;
 	int		y;
 
 	map_copy = copy_map(map);
@@ -112,6 +112,7 @@ int	check_map_accesibility(char **map)
 		return (0);
 	}
 	flood_fill(map_copy, x, y);
+	print_map_debug(map_copy);
 	if (!is_map_fully_accessible(map_copy))
 	{
 		free_map(map_copy);

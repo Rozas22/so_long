@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 15:44:28 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/18 09:28:55 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/18 11:13:08 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**copy_map(char **map)
 
 void	flood_fill(char **map, int x, int y)
 {
-	if (mao[y][x] == '1' || map[y][x] == 'V')
+	if (map[y][x] == '1' || map[y][x] == 'V')
 		return ;
 	map[y][x] = 'V';
 	flood_fill(map, x + 1, y);

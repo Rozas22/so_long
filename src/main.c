@@ -6,13 +6,13 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:41:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/05/30 15:07:03 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/18 11:30:28 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	char	**map;
 
@@ -28,4 +28,20 @@ int	main(int argc, char **argv)
 		return (ft_printf("El mapa no es rectangular\n"), 1);
 	ft_printf("Mapa válido\n");
 	return (0);
+}*/
+int	main(void)
+{
+	char *map[] = {
+		"11111",
+		"1P001",
+		"100E1",
+		"11111",
+		NULL
+	};
+	if (!check_map_accessibility(map))
+		ft_printf("El mapa NO es accesible\n");
+	else
+	ft_printf("El mapa SÍ es accesible\n");
+	return (0);
 }
+

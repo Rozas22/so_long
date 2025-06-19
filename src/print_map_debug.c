@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_read.c                                         :+:      :+:    :+:   */
+/*   print_map_debug.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/30 14:13:20 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/18 11:45:30 by ikrozas          ###   ########.fr       */
+/*   Created: 2025/06/18 09:45:40 by ikrozas           #+#    #+#             */
+/*   Updated: 2025/06/18 09:47:21 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**map_read(const char	*file_path)
+void	print_map_debug(char **map)
 {
-	int		fd;
-	char	**map;
-	char	*line;
-	int		i;
+	int	i;
 
-	fd = open(file_path, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	map = malloc(sizeof(char *) * 10000);
-	if (!map)
-		return (NULL);
 	i = 0;
-	line = get_next_line(fd);
-	while (line || i < 9999)
+	while (map[i])
 	{
-		map[i++] = line;
-		line = get_next_line(fd);
+		ft_printf("%s\n", map[i]);
+		i++;
 	}
-	map[i] = NULL;
-	close(fd);
-	return (map);
 }

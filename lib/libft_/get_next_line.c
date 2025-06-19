@@ -6,11 +6,11 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:21:53 by iker              #+#    #+#             */
-/*   Updated: 2025/04/30 16:52:58 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/18 11:26:13 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static char	*extract_line(char **buffer)
 {
