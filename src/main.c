@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:41:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/20 17:54:38 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/20 18:34:53 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	if (!check_map_accessibility(&game))
 		return (ft_printf("El mapa NO es accesible\n"), 1);
 	ft_printf("El mapa SÍ es accesible\n");
+	game.steps = 0;
 	return (0);
 }
 /*int	main(void)
