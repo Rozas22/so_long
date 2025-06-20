@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:34:57 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/18 11:28:35 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/20 17:53:03 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,13 @@ int	check_parameters(char **map)
 	return (1);
 }
 
-int	check_map_accessibility(char **map)
+int	check_map_accessibility(t_game *game)
 {
 	char	**map_copy;
 	int		x;
 	int		y;
 
-	map_copy = copy_map(map);
+	map_copy = copy_map(game->map);
 	if (!map_copy)
 		return (0);
 	if (!find_player(map_copy, &x, &y))
