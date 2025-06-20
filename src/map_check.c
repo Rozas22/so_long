@@ -6,52 +6,52 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:34:57 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/20 17:53:03 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/20 18:18:55 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	is_rectangular(char	**map)
+int	is_rectangular(t_game *game)
 {
 	int	i;
 	int	len;
 
-	if (!map || !map[0])
+	if (!game->map || !game->map[0])
 		return (0);
-	len = ft_strlen(map[0]);
+	len = ft_strlen(game->map[0]);
 	i = 1;
-	while (map[i])
+	while (game->map[i])
 	{
-		if ((int)ft_strlen(map[i]) != len)
+		if ((int)ft_strlen(game->map[i]) != len)
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	check_walls(char **map)
+int	check_walls(t_game *game)
 {
 	int	i;
 	int	len;
 	int	last;
 
-	len = ft_strlen(map[0]);
+	len = ft_strlen(game->map[0]);
 	last = 0;
-	while (map[last])
+	while (game->map[last])
 		last++;
 	last--;
 	i = 0;
-	while (map[0][i])
+	while (game->map[0][i])
 	{
-		if (map[0][i] != '1' || map[last][i] != '1')
+		if (game->map[0][i] != '1' || game->map[last][i] != '1')
 			return (0);
 		i++;
 	}
 	i = 1;
-	while (map[i < last])
+	while (game->map[i < last])
 	{
-		if (map[i][0] != '1' || map[i][len - 1] != '1')
+		if (game->map[i][0] != '1' || game->map[i][len - 1] != '1')
 			return (0);
 		i++;
 	}
@@ -71,7 +71,7 @@ static int	count_chars(char c, t_counts *counts)
 	return (1);
 }
 
-int	check_parameters(char **map)
+int	check_parameters(t_game *game)
 {
 	int			i;
 	int			j;
@@ -81,12 +81,12 @@ int	check_parameters(char **map)
 	counts.e = 0;
 	counts.c = 0;
 	i = 0;
-	while (map[i])
+	while (game->map[i])
 	{
 		j = 0;
-		while (map[i][j])
+		while (game->map[i][j])
 		{
-			if (!count_chars(map[i][j], &counts))
+			if (!count_chars(game->map[i][j], &counts))
 				return (0);
 			j++;
 		}

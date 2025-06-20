@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/20 18:09:19 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/20 18:17:34 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ typedef struct s_counts
 }	t_counts;
 
 char	**map_read(const char *file_path);
-int		is_rectangular(char **map);
-int		check_walls(char **map);
-int		check_parameters(char **map);
-char	**copy_map(char **map);
-int		get_map_height(char **map);
-void	free_map(char **map);
-void	flood_fill(char **map, int x, int y);
-int		find_player(char **map, int *x, int *y);
+int		is_rectangular(t_game *game);
+int		check_walls(t_game *game);
+int		check_parameters(t_game *game);
+char	**copy_map(t_game *game);
+int		get_map_height(t_game *game);
+void	free_map(t_game *game);
+void	flood_fill(t_game *game, int x, int y);
+int		find_player(t_game *game, int *x, int *y);
 int		is_map_fully_accessible(t_game *game);
 int		check_map_accessibility(t_game *game);
-void	print_map_debug(char **map);
+void	print_map_debug(t_game *game);
 int		find_player_position(t_game *game);
 
 typedef struct s_game
