@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/20 18:17:34 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/20 18:58:14 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ int		is_map_fully_accessible(t_game *game);
 int		check_map_accessibility(t_game *game);
 void	print_map_debug(t_game *game);
 int		find_player_position(t_game *game);
+void	move_up(t_game *game);
+void	move_down(t_game *game);
+void	move_right(t_game *game);
+void	move_left(t_game *game);
 
 typedef struct s_game
 {
