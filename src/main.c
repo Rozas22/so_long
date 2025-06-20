@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:41:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/20 18:34:53 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/20 18:43:10 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,3 @@ int	main(int argc, char **argv)
 	ft_printf("El mapa SÍ es accesible\n");
 	return (0);
 }*/
-
