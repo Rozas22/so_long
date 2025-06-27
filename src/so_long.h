@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/27 10:32:58 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/27 14:09:01 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../lib/libft_/libft.h"
 # include "../lib/printf_/ft_printf.h"
-#include <mlx.h>
 
 typedef struct s_counts
 {

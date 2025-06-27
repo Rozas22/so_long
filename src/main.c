@@ -6,11 +6,13 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:41:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/20 18:43:10 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/27 14:13:28 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../lib/MLX42/MLX42.h"
 #include "so_long.h"
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
@@ -28,21 +30,11 @@ int	main(int argc, char **argv)
 		return (ft_printf("El mapa NO es accesible\n"), 1);
 	ft_printf("El mapa SÍ es accesible\n");
 	game.steps = 0;
-	return (0);
+	
+	game.mlx = mlx_init(800, 600, "so_long, true");
+	if (!game.mlx)
+	{
+		ft_printf("Error inicializando MLX: %")
+	}
 }
-/*int	main(void)
-{
-	char *map[] = {
-		"11111",
-		"1P001",
-		"10101",
-		"11E11"
-		"11111",
-		NULL
-	};
-	if (!check_map_accessibility(map))
-		ft_printf("El mapa NO es accesible\n");
-	else
-	ft_printf("El mapa SÍ es accesible\n");
-	return (0);
-}*/
+
