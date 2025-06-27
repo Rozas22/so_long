@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/20 18:58:14 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/27 10:32:58 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../lib/libft_/libft.h"
 # include "../lib/printf_/ft_printf.h"
+#include <mlx.h>
 
 typedef struct s_counts
 {
@@ -49,7 +50,9 @@ typedef struct s_game
 	int		collectibles;
 	int		width;
 	int		height;
-	int		steps;	
+	int		steps;
+	void	*mlx;
+	void	*win;
 }	t_game;
 
 #endif
