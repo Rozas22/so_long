@@ -6,7 +6,7 @@
 #    By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/12 16:26:46 by ikrozas           #+#    #+#              #
-#    Updated: 2025/05/30 14:12:13 by ikrozas          ###   ########.fr        #
+#    Updated: 2025/06/27 16:14:48 by ikrozas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LIB = ar rcs
 RM = rm -f
 
 CC = cc
-CCFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Werror -fPIE
 
 NAME = libft.a
 SRC =	ft_memset.c ft_bzero.c ft_strlen.c ft_atoi.c ft_isdigit.c ft_isalpha.c\

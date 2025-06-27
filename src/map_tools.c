@@ -6,18 +6,18 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 15:44:28 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/27 15:39:51 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/27 15:45:42 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	get_map_height(t_game *game)
+int	get_map_height(char	**map)
 {
 	int	i;
 
 	i = 0;
-	while (game->map[i])
+	while (map[i])
 		i++;
 	return (i);
 }
@@ -79,15 +79,15 @@ int	find_player(char	**map, int *x, int *y)
 	return (0);
 }
 
-void	free_map(t_game *game)
+void	free_map(char	**map)
 {
 	int	i;
 
 	i = 0;
-	while (game->map[i])
+	while (map[i])
 	{
-		free(game->map[i]);
+		free(map[i]);
 		i++;
 	}
-	free(game->map);
+	free(map);
 }

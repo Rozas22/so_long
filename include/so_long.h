@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/27 15:34:53 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/27 15:45:01 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		is_rectangular(t_game *game);
 int		check_walls(t_game *game);
 int		check_parameters(t_game *game);
 char	**copy_map(char	**map);
-int		get_map_height(t_game *game);
+int		get_map_height(char	**map);
 void	free_map(char	**map);
 void	flood_fill(char	**map, int x, int y);
 int		find_player(char **map, int *x, int *y);

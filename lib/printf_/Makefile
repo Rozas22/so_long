@@ -6,7 +6,7 @@
 #    By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 13:07:25 by ikrozas           #+#    #+#              #
-#    Updated: 2024/10/28 15:26:59 by ikrozas          ###   ########.fr        #
+#    Updated: 2025/06/27 16:14:56 by ikrozas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC	=	ft_printf.c			\
 OBJS = $(SRC:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fPIE
 RM = rm -rf
 AR = ar crs
 
