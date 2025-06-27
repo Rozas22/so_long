@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/27 14:09:01 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/06/27 15:34:53 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,15 @@
 # include "../lib/libft_/libft.h"
 # include "../lib/printf_/ft_printf.h"
 
+#define WIDTH 800
+#define HEIGHT 600
+
 typedef struct s_counts
 {
 	int	p;
 	int	e;
 	int	c;	
 }	t_counts;
-
-char	**map_read(const char *file_path);
-int		is_rectangular(t_game *game);
-int		check_walls(t_game *game);
-int		check_parameters(t_game *game);
-char	**copy_map(t_game *game);
-int		get_map_height(t_game *game);
-void	free_map(t_game *game);
-void	flood_fill(t_game *game, int x, int y);
-int		find_player(t_game *game, int *x, int *y);
-int		is_map_fully_accessible(t_game *game);
-int		check_map_accessibility(t_game *game);
-void	print_map_debug(t_game *game);
-int		find_player_position(t_game *game);
-void	move_up(t_game *game);
-void	move_down(t_game *game);
-void	move_right(t_game *game);
-void	move_left(t_game *game);
 
 typedef struct s_game
 {
@@ -53,5 +38,23 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 }	t_game;
+
+char	**map_read(const char *file_path);
+int		is_rectangular(t_game *game);
+int		check_walls(t_game *game);
+int		check_parameters(t_game *game);
+char	**copy_map(char	**map);
+int		get_map_height(t_game *game);
+void	free_map(char	**map);
+void	flood_fill(char	**map, int x, int y);
+int		find_player(char **map, int *x, int *y);
+int		is_map_fully_accessible(char **map);
+int		check_map_accessibility(t_game *game);
+int		find_player_position(t_game *game);
+void	move_up(t_game *game);
+void	move_down(t_game *game);
+void	move_right(t_game *game);
+void	move_left(t_game *game);
+void	init_window(t_game *game);
 
 #endif

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_map_debug.c                                  :+:      :+:    :+:   */
+/*   init_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/18 09:45:40 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/18 09:47:21 by ikrozas          ###   ########.fr       */
+/*   Created: 2025/06/27 14:25:45 by ikrozas           #+#    #+#             */
+/*   Updated: 2025/06/27 14:42:56 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "MLX42/MLX42.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void	print_map_debug(char **map)
+void	init_window(t_game *game)
 {
-	int	i;
-
-	i = 0;
-	while (map[i])
+	gmae->mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
+	if (!game->mlx)
 	{
-		ft_printf("%s\n", map[i]);
-		i++;
+		ft_printf("Error iniciando MLX: %s\n", ,mlx_strerror(mlx_errno));
+		EXIT(EXIT_FAILURE);
 	}
 }
