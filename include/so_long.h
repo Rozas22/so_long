@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/27 15:45:01 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/07/07 20:26:13 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include "../lib/libft_/libft.h"
 # include "../lib/printf_/ft_printf.h"
+# include "MLX42/MLX42.h"
 
-#define WIDTH 800
-#define HEIGHT 600
+# define WIDTH 640
+# define HEIGHT 480
 
 typedef struct s_counts
 {
@@ -28,15 +29,15 @@ typedef struct s_counts
 
 typedef struct s_game
 {
-	char	**map;
-	int		player_x;
-	int		player_y;
-	int		collectibles;
-	int		width;
-	int		height;
-	int		steps;
-	void	*mlx;
-	void	*win;
+	char			**map;
+	int				player_x;
+	int				player_y;
+	int				collectibles;
+	int				width;
+	int				height;
+	int				steps;
+	mlx_t			*mlx;
+	mlx_image_t		*img;
 }	t_game;
 
 char	**map_read(const char *file_path);
