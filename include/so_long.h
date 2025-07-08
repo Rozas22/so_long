@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/07/07 20:26:13 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/07/08 20:48:14 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 # include "../lib/libft_/libft.h"
 # include "../lib/printf_/ft_printf.h"
 # include "MLX42/MLX42.h"
-
-# define WIDTH 640
-# define HEIGHT 480
 
 typedef struct s_counts
 {
@@ -37,7 +34,12 @@ typedef struct s_game
 	int				height;
 	int				steps;
 	mlx_t			*mlx;
-	mlx_image_t		*img;
+	mlx_image_t		*img_wall;
+	mlx_image_t		*img_floor;
+	mlx_image_t		*img_player;
+	mlx_image_t		*img_collectible;
+	mlx_image_t		*img_exit;
+
 }	t_game;
 
 char	**map_read(const char *file_path);
@@ -57,5 +59,9 @@ void	move_down(t_game *game);
 void	move_right(t_game *game);
 void	move_left(t_game *game);
 void	init_window(t_game *game);
+int		load_maptextures(t_game *game);
+int		load_textures(t_game *game);
+void	render_tile(t_game *game, int x, int y);
+void	remove_newline(char *line);
 
 #endif

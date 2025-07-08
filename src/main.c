@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:41:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/07/02 23:34:40 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/07/08 19:24:44 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int argc, char **argv)
 	game.map = map_read(argv[1]);
 	if (!game.map)
 		return (ft_printf("Error al leer el mapa\n"), 1);
+	game.height = get_map_height(game.map);
+	game.width = ft_strlen(game.map[0]);
 	if (!check_map_accessibility(&game))
 		return (ft_printf("El mapa NO es accesible\n"), 1);
 	ft_printf("El mapa SÍ es accesible\n");
