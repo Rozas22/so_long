@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/07/08 20:48:14 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/07/08 21:03:17 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../lib/libft_/libft.h"
 # include "../lib/printf_/ft_printf.h"
 # include "MLX42/MLX42.h"
+
+# define TILE_SIZE 100
 
 typedef struct s_counts
 {
@@ -63,5 +65,6 @@ int		load_maptextures(t_game *game);
 int		load_textures(t_game *game);
 void	render_tile(t_game *game, int x, int y);
 void	remove_newline(char *line);
+int		count_collectibles(char **map);
 
 #endif

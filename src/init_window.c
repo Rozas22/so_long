@@ -6,13 +6,12 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:25:45 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/07/08 20:49:02 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/07/08 20:59:28 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "MLX42/MLX42.h"
-#define TILE_SIZE 100
 
 void	render_hook(void *param)
 {
@@ -63,14 +62,23 @@ void	render_tile(t_game *game, int x, int y)
 			x * TILE_SIZE, y * TILE_SIZE);
 }
 
-
 void	key_hook(mlx_key_data_t keydata, void *param)
 {
 	t_game	*game;
 
 	game = (t_game *)param;
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+	if (keydata.action != MLX_PRESS)
+		return ;
+	if (keydata.key == MLX_KEY_ESCAPE)
 		mlx_close_window(game->mlx);
+	else if (keydata.key == MLX_KEY_W)
+		move_up(game);
+	else if (keydata.key == MLX_KEY_S)
+		move_down(game);
+	else if (keydata.key == MLX_KEY_A)
+		move_left(game);
+	else if (keydata.key == MLX_KEY_D)
+		move_right(game);
 }
 
 void	init_window(t_game *game)

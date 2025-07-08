@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:13:20 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/07/08 20:47:57 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/07/08 21:03:01 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,26 @@ void	remove_newline(char *line)
 		}
 		i++;
 	}
+}
+
+int	count_collectibles(char **map)
+{
+	int	y;
+	int	x;
+	int	count;
+
+	y = 0;
+	count = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[y][x] == 'C')
+				count++;
+			x++;
+		}
+		y++;
+	}
+	return (count);
 }
