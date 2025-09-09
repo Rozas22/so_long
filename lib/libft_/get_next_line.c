@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 14:21:53 by iker              #+#    #+#             */
-/*   Updated: 2025/06/18 11:26:13 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/09 16:15:27 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,19 @@ static char	*extract_line(char **buffer)
 {
 	char	*line;
 	char	*temp;
+	size_t	skip;
 	size_t	i;
 
 	i = 0;
-	while ((*buffer)[i] && (*buffer)[i] != '\n')
+	while ((*buffer)[i] && (*buffer)[i] != '\n' && (*buffer)[i] != '\r')
 		i++;
-	line = ft_substr(*buffer, 0, i + 1);
-	temp = ft_strdup(*buffer + i + (i < ft_strlen(*buffer)));
+	line = ft_substr(*buffer, 0, i);
+	skip = 0;
+	if ((*buffer)[i] == '\r' && (*buffer)[i + 1] == '\n')
+		skip = 2;
+	else if ((*buffer)[i] == '\n' || (*buffer)[i] == '\r')
+		skip = 1;
+	temp = ft_strdup(*buffer + i + skip);
 	free(*buffer);
 	*buffer = temp;
 	return (line);
