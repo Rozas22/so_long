@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:34:57 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/09 16:38:22 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/10 11:03:05 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	count_chars(char c, t_counts *counts)
 		counts->e++;
 	else if (c == 'C')
 		counts->c++;
-	else if (c != 0 && c != 1)
+	else if (c != '0' && c != '1')
 		return (0);
 	return (1);
 }
