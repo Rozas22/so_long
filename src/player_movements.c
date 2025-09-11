@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:37:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/07/08 21:13:19 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/10 13:05:19 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	move_up(t_game *game)
 	{
 		if (game->collectibles == 0)
 		{
+			free_map(game->map);
 			ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
 			mlx_close_window(game->mlx);
 		}
@@ -54,6 +55,7 @@ void	move_down(t_game *game)
 	{
 		if (game->collectibles == 0)
 		{
+			free_map(game->map);
 			ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
 			mlx_close_window(game->mlx);
 		}
@@ -83,6 +85,7 @@ void	move_left(t_game *game)
 	{
 		if (game->collectibles == 0)
 		{
+			free_map(game->map);
 			ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
 			mlx_close_window(game->mlx);
 		}
@@ -112,6 +115,7 @@ void	move_right(t_game *game)
 	{
 		if (game->collectibles == 0)
 		{
+			free_map(game->map);
 			ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
 			mlx_close_window(game->mlx);
 		}

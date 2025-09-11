@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:41:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/09 15:37:25 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/10 12:13:34 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ int	main(int argc, char **argv)
 	}
 	game.map = map_read(argv[1]);
 	if (!game.map)
-		return (ft_printf("Error al leer el mapa\n"), 1);
+		return (ft_printf("Error:\n al leer el mapa\n"), 1);
 	game.height = get_map_height(game.map);
 	game.width = ft_strlen(game.map[0]);
 	game.collectibles = count_collectibles(game.map);
 	if (!is_rectangular(&game))
-		return (ft_printf("Error: el mapa no es rectangular\n"));
+		return (ft_printf("Error:\nEl mapa no es rectangular\n"));
 	if (!find_player_position(&game))
-		return (ft_printf("Error: no se encontro el player\n"), 1);
+		return (ft_printf("Error:\nNo se encontro el player\n"), 1);
 	if (!check_parameters(&game))
-		return (ft_printf("Error: falta algun elemento"));
+		return (ft_printf("Error:\nFalta algun elemento"));
 	if (!check_map_accessibility(&game))
-		return (ft_printf("El mapa NO es accesible\n"), 1);
+		return (ft_printf("Error:\nEl mapa NO es accesible\n"), 1);
 	ft_printf("El mapa SÍ es accesible\n");
 	game.steps = 0;
 	init_window(&game);

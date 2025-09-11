@@ -1,5 +1,5 @@
 NAME		= so_long
-CFLAGS		= -Wextra -Wall -Werror -g -Wunreachable-code -Ofast -fPIE
+CFLAGS		= -Wextra -Wall -Werror
 LIBMLX		= ./lib/MLX42
 CC			= gcc
 
@@ -10,8 +10,11 @@ LIBFT_PATH	= ./lib/libft_/libft.a
 PRINTF_PATH	= ./lib/printf_/libftprintf.a
 MLX_PATH	= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 LIBS_PATH	= $(LIBFT_PATH) $(PRINTF_PATH) $(MLX_PATH)
-SRCS := $(shell find ./src -iname "*.c")
-OBJS := ${SRCS:.c=.o}
+SRCS 		= $(shell find ./src -iname "*.c")
+OBJS 		= ${SRCS:.c=.o}
+
+
+all: mlx libft_ printf_ $(NAME)
 
 libft_:
 	@make -C $(LIBFT_DIR)
@@ -19,11 +22,12 @@ libft_:
 printf_:
 	@make -C $(PRINTF_DIR)
 
-all: libft_ printf_ libmlx $(NAME)
 
-
-
-libmlx:
+mlx:
+	@if [ ! -d "$(LIBMLX)" ]; then \
+		git clone https://github.com/42-Fundacion-Telefonica/MLX42.git $(LIBMLX); \
+		echo "MLX42 not found. Downloading..."; \
+	fi
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 %.o: %.c
@@ -38,8 +42,8 @@ clean:
 	@rm -rf $(LIBMLX)/build
 
 fclean: clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) $(LIBMLX)
 
 re: clean all
 
-.PHONY: all clean fclean re libmlx libft_ printf_
+.PHONY: all clean fclean re mlx libft_ printf_

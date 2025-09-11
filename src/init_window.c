@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:25:45 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/07/08 20:59:28 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/10 12:12:06 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,6 @@ void	render_tile(t_game *game, int x, int y)
 	char	tile;
 
 	tile = game->map[y][x];
-	/*if (tile == '1' && !game->img_wall)
-		ft_printf("img_wall es NULL en (%d,%d)\n", x, y);
-	if (tile == 'P' && !game->img_player)
-		ft_printf("img_player es NULL en (%d,%d)\n", x, y);
-	if (tile == 'C' && !game->img_collectible)
-		ft_printf("img_collectible es NULL en (%d,%d)\n", x, y);
-	if (tile == 'E' && !game->img_exit)
-		ft_printf("img_exit es NULL en (%d,%d)\n", x, y);*/
 	mlx_image_to_window(game->mlx, game->img_floor,
 		x * TILE_SIZE, y * TILE_SIZE);
 	if (tile == '1')
@@ -89,9 +81,9 @@ void	init_window(t_game *game)
 		exit(1);
 	if (load_textures(game) || load_maptextures(game))
 	{
-		ft_printf("Error cargando texturas\n");
+		ft_printf("Error\n cargando texturas\n");
 		mlx_terminate(game->mlx);
-		exit(EXIT_FAILURE);	
+		exit(EXIT_FAILURE);
 	}
 	render_hook(game);
 	mlx_key_hook(game->mlx, key_hook, game);
