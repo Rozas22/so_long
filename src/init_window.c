@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:25:45 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/10 12:12:06 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/11 17:27:53 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	render_tile(t_game *game, int x, int y)
 	if (tile == '1')
 		mlx_image_to_window(game->mlx, game->img_wall,
 			x * TILE_SIZE, y * TILE_SIZE);
-	else if (tile == 'P')
+	else if (x == game->player_x && y == game->player_y)
 		mlx_image_to_window(game->mlx, game->img_player,
 			x * TILE_SIZE, y * TILE_SIZE);
 	else if (tile == 'E')
@@ -61,16 +61,12 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	game = (t_game *)param;
 	if (keydata.action != MLX_PRESS)
 		return ;
-	if (keydata.key == MLX_KEY_ESCAPE)
-		mlx_close_window(game->mlx);
-	else if (keydata.key == MLX_KEY_W)
-		move_up(game);
-	else if (keydata.key == MLX_KEY_S)
-		move_down(game);
-	else if (keydata.key == MLX_KEY_A)
-		move_left(game);
-	else if (keydata.key == MLX_KEY_D)
-		move_right(game);
+
+	if (keydata.key == MLX_KEY_ESCAPE || keydata.key == MLX_KEY_W
+		|| keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_A
+		|| keydata.key == MLX_KEY_D)
+		move(game, ((keydata.key == MLX_KEY_D) - (keydata.key == MLX_KEY_A)),
+			((keydata.key == MLX_KEY_S) - (keydata.key == MLX_KEY_W)));
 }
 
 void	init_window(t_game *game)

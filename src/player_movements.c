@@ -6,128 +6,35 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:37:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/10 13:05:19 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/11 17:25:41 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	move_up(t_game *game)
+void	move(t_game *game, int mx, int my)
 {
 	int	x;
 	int	y;
 
-	x = game->player_x;
-	y = game->player_y;
-	if (game->map[y - 1][x] == '1')
+	x = game->player_x + mx;
+	y = game->player_y + my;
+	if (game->map[y][x] == '1')
 		return ;
-	if (game->map[y - 1][x] == 'E')
+	if (game->map[y][x] == 'E' && game->collectibles == 0)
 	{
-		if (game->collectibles == 0)
-		{
-			free_map(game->map);
-			ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
-			mlx_close_window(game->mlx);
-		}
-		return ;
+		free_map(game->map);
+		ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
+		mlx_close_window(game->mlx);
 	}
-	if (game->map[y - 1][x] == 'C')
+	if (game->map[y][x] == 'C')
+	{
+		game->map[y][x] = '0';
 		game->collectibles--;
-	game->map[y][x] = '0';
-	game->map[y - 1][x] = 'P';
-	game->player_y--;
+	}
+	game->player_x = x;
+	game->player_y = y;
 	game->steps++;
 	ft_printf("Movements: %d\n", game->steps);
-	game->img_player->instances[0].x = game->player_x * TILE_SIZE;
-	game->img_player->instances[0].y = game->player_y * TILE_SIZE;
-}
-
-void	move_down(t_game *game)
-{
-	int	x;
-	int	y;
-
-	x = game->player_x;
-	y = game->player_y;
-	if (game->map[y + 1][x] == '1')
-		return ;
-	if (game->map[y + 1][x] == 'E')
-	{
-		if (game->collectibles == 0)
-		{
-			free_map(game->map);
-			ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
-			mlx_close_window(game->mlx);
-		}
-		return ;
-	}
-	if (game->map[y + 1][x] == 'C')
-		game->collectibles--;
-	game->map[y][x] = '0';
-	game->map[y + 1][x] = 'P';
-	game->player_y++;
-	game->steps++;
-	ft_printf("Movements: %d\n", game->steps);
-	game->img_player->instances[0].x = game->player_x * TILE_SIZE;
-	game->img_player->instances[0].y = game->player_y * TILE_SIZE;
-}
-
-void	move_left(t_game *game)
-{
-	int	x;
-	int	y;
-
-	x = game->player_x;
-	y = game->player_y;
-	if (game->map[y][x - 1] == '1')
-		return ;
-	if (game->map[y][x - 1] == 'E')
-	{
-		if (game->collectibles == 0)
-		{
-			free_map(game->map);
-			ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
-			mlx_close_window(game->mlx);
-		}
-		return ;
-	}
-	if (game->map[y][x - 1] == 'C')
-		game->collectibles--;
-	game->map[y][x] = '0';
-	game->map[y][x - 1] = 'P';
-	game->player_x--;
-	game->steps++;
-	ft_printf("Movements: %d\n", game->steps);
-	game->img_player->instances[0].x = game->player_x * TILE_SIZE;
-	game->img_player->instances[0].y = game->player_y * TILE_SIZE;
-}
-
-void	move_right(t_game *game)
-{
-	int	x;
-	int	y;
-
-	x = game->player_x;
-	y = game->player_y;
-	if (game->map[y][x + 1] == '1')
-		return ;
-	if (game->map[y][x + 1] == 'E')
-	{
-		if (game->collectibles == 0)
-		{
-			free_map(game->map);
-			ft_printf("¡Ganaste en %d movimientos!\n", game->steps + 1);
-			mlx_close_window(game->mlx);
-		}
-		return ;
-	}
-	if (game->map[y][x + 1] == 'C')
-		game->collectibles--;
-	game->map[y][x] = '0';
-	game->map[y][x + 1] = 'P';
-	game->player_x++;
-	game->steps++;
-	ft_printf("Movements: %d\n", game->steps);
-	game->img_player->instances[0].x = game->player_x * TILE_SIZE;
-	game->img_player->instances[0].y = game->player_y * TILE_SIZE;
+	render_hook(game);
 }
