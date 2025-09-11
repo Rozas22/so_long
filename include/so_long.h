@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/11 17:00:43 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/11 17:29:50 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		load_textures(t_game *game);
 void	render_tile(t_game *game, int x, int y);
 void	remove_newline(char *line);
 int		count_collectibles(char **map);
-
+void	render_hook(void *param);
 void	move(t_game *game, int mx, int my);
 
 #endif
