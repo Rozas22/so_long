@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 14:25:45 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/11 17:27:53 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/11 17:31:37 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	game = (t_game *)param;
 	if (keydata.action != MLX_PRESS)
 		return ;
-
 	if (keydata.key == MLX_KEY_ESCAPE || keydata.key == MLX_KEY_W
 		|| keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_A
 		|| keydata.key == MLX_KEY_D)

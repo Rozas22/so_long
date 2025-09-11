@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:41:46 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/11 17:02:51 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/11 17:32:54 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ int	main(int argc, char **argv)
 	game.collectibles = count_collectibles(game.map);
 	if (!is_rectangular(&game))
 		return (ft_printf("Error:\nEl mapa no es rectangular\n"));
-	if (!find_player_position(&game))
-		return (ft_printf("Error:\nNo se encontro el player\n"), 1);
-	if (!check_parameters(&game))
+	if (!check_parameters(&game) || !find_player_position(&game))
 		return (ft_printf("Error:\nFalta algun elemento"));
 	if (!check_map_accessibility(&game))
 		return (ft_printf("Error:\nEl mapa NO es accesible\n"), 1);
