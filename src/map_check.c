@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:34:57 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/10 11:03:05 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/15 10:51:03 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	check_walls(t_game *game)
 		i++;
 	}
 	i = 1;
-	while (game->map[i < last])
+	while (i < last)
 	{
 		if (game->map[i][0] != '1' || game->map[i][len - 1] != '1')
 			return (0);
@@ -111,7 +111,7 @@ int	check_map_accessibility(t_game *game)
 		free_map(map_copy);
 		return (0);
 	}
-	flood_fill(map_copy, x, y);
+	flood_fill(map_copy, x, y, game->width, game->height);
 	if (!is_map_fully_accessible(map_copy))
 	{
 		free_map(map_copy);

@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/11 17:29:50 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/15 10:32:56 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ int		check_parameters(t_game *game);
 char	**copy_map(char	**map);
 int		get_map_height(char	**map);
 void	free_map(char	**map);
-void	flood_fill(char	**map, int x, int y);
+void	flood_fill(char	**map, int x, int y, int w, int h);
 int		find_player(char **map, int *x, int *y);
 int		is_map_fully_accessible(char **map);
 int		check_map_accessibility(t_game *game);
 int		find_player_position(t_game *game);
+int		errors(t_game *game);
 void	init_window(t_game *game);
 int		load_maptextures(t_game *game);
 int		load_textures(t_game *game);

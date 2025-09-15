@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 15:44:28 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/06/27 15:45:42 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/15 10:47:03 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,17 @@ char	**copy_map(char	**map)
 	return (new_map);
 }
 
-void	flood_fill(char	**map, int x, int y)
+void	flood_fill(char	**map, int x, int y, int w, int h)
 {
+	if (x < 0 || y < 0 || x >= w || y >= h)
+		return ;
 	if (map[y][x] == '1' || map[y][x] == 'V')
 		return ;
 	map[y][x] = 'V';
-	flood_fill(map, x + 1, y);
-	flood_fill(map, x - 1, y);
-	flood_fill(map, x, y + 1);
-	flood_fill(map, x, y - 1);
+	flood_fill(map, x + 1, y, w, h);
+	flood_fill(map, x - 1, y, w, h);
+	flood_fill(map, x, y + 1, w, h);
+	flood_fill(map, x, y - 1, w, h);
 }
 
 int	find_player(char	**map, int *x, int *y)
