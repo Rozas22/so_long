@@ -6,7 +6,7 @@
 /*   By: ikrozas <ikrozas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:55:04 by ikrozas           #+#    #+#             */
-/*   Updated: 2025/09/15 10:32:56 by ikrozas          ###   ########.fr       */
+/*   Updated: 2025/09/16 19:04:23 by ikrozas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	remove_newline(char *line);
 int		count_collectibles(char **map);
 void	render_hook(void *param);
 void	move(t_game *game, int mx, int my);
+void	check_argv(int ac, char **av);
 
 #endif
